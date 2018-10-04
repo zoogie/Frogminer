@@ -47,7 +47,7 @@ https://3ds.hacks.guide/installing-boot9strap-(dsiware-game-injection)#section-v
 Thanks:
 Martin Korth (nocash) - location hints for flipnote privkeys, no$gba, excellent Gbatek docs. I could go on.
 Shutterbug2000 - ugopwn exploit. brilliant stuff!
-Fincs and Wintermute - Flipnote Lenny, a revised version of ugopwn. This is the version I ported. Very clean, elegant work which made it a more managable task for me.
+Fincs and Wintermute - Flipnote Lenny, a revised version of ugopwn. This is the version I ported. Very clean, elegant work which made it a more manageable task for me.
 zacchi4k and Chromaryu - for tools assistance, thanks a bunch!
 All my peeps on the Nintendo Homebrew Discord and GBAtemp for constant support of seedminer and its users!
 
