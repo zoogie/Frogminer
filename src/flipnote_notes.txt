@@ -1,0 +1,48 @@
+My scratch notes for porting ugopwn (Lenny version) to FN JPN v0.
+It was a lot messier than this at one point.
+
+-Region[Version]
+-Payload RAM offset (minitwlpayload)
+-Flipnote RAM offset (PARA)
+-Hax code positioning offset relative to PARA (?)
+
+
+USA
+0217AE70             70 AE 17 02
+02829A20
+-5AEBE1 = FFA5141F   1F 14 A5 FF
+
+EUR
+021B00D0             D0 00 1B 02
+028AAE40
+-630001 = FF9CFFFF   FF FF 9C FF
+
+JPN2
+0213AFB0             B0 AF 13 02
+02843920
+-5C8AE1 = FFA3751F   1F 75 A3 FF
+
+JPN1
+0216C730
+028195C0
+-59E781 = FFA6187F
+
+JPN0
+02116C70
+026E56E0
+-46A8A1 = FFB9575F
+
+Additional notes:
+
+* The loaded flipnote positon in memory and the positioning variable always has the same distance apart, 227AE3F.
+02829A20-5AEBE1=227AE3F
+028AAE40-630001=227AE3F
+02843920-5C8AE1=227AE3F
+028195C0-59E781=227AE3F
+026E56E0-46A8A1=227AE3F
+
+* v0 doesn't let you copy frames between different flipnote files so I had to work around this by appending the
+payload/hax frame (800031_...) to the target frame file (T00031_...). As a nice side effect, this makes the exploit triggering process easier.
+
+* Couldn't get useful RAM dumps from no$gba for JPN flipnote versions  due to title screen crashes, but it's possible to dump dsiram by rebooting the 3ds and immediately chainloading godmode9, then dumping fcram.mem.
+I use the included fcram2dsiram script to decode the weird "spread out" chunked format of dsi ram in fcram. the first half meg or so is overwritten by the 3ds but that's not an issue in most cases.
